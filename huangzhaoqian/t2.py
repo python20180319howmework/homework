@@ -4,17 +4,19 @@ def binb(n):
 		a=n%2
 		b=n//2
 		l.append(a)
+		
 		n=b
+	print(l)
+	l.reverse()
 	return l
 #binb=l.reverse()
-#print(l.reverse())
 def oo(n):
 	while n!= 0:
 		a=n%8
 		b=n//8
 		l.append(a)
 		n=b
-		l.reverse()
+#	    l.reverse()
 	return l
 def ox(n):
 	while n!= 0:
