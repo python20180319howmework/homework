@@ -4,7 +4,7 @@ print("{:>20}:{:<8.2f}".format("我们的平均成绩是",78.4567))
 
 #第二题
 a=256
-print("dec=%d,oct=%o,hex=%x"%(a,a,a))
+print("{0:b},{0:d},{0:o},{0:X}".format(num))
 #dec=256,oct=400,hex=100
 
 #第三题
@@ -12,7 +12,7 @@ s="python"
 t="最好用语言"
 s+=t
 print(s,s[-1],s[2:9],s[:3],s[-3:-1])
-#python最好用语言 言 thon最好用 pyt 用语 
+#python最好用语言 言 thon最好用 pyt 的语 
 
 #第四题
 #不等于
