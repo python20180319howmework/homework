@@ -22,6 +22,16 @@ for i in range (100,1000):
 		continue
 print("共有%s 个水仙花数" % n)	
 
+while num >= 0:
+	a1 = num % 10
+	sum1 += pow(a1, 2)
+	num = num //10 
+for i in range(100,1000):
+	if sum1 == num:
+		print("{}是水仙花数".format(num))
+		n += 1
+else:
+	print("三位数总共有%s个水仙花数" % n)
 
 
 
