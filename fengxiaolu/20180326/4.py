@@ -1,5 +1,20 @@
-x=int(input("输入一个数字"))
-if x in range(101:)
-	print("你好棒啊！继续努力“)
-elsa:
-	print("乖乖，你咋这么不听话呢")
+#5
+mystr = str(input("请输入字符串："))
+DX = 0
+XX = 0
+
+for s in mystr:
+	if ord('a')<= ord(s) <= ord('z'):
+		XX+=1
+		
+for s in mystr:
+	if ord('A') <= ord(s) <= ord('Z'):
+		DX+=1
+
+
+print("{}中有{}个大写{}个小写".format(mystr,DX,XX))
+
+
+
+
+

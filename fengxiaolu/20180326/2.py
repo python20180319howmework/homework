@@ -1,8 +1,10 @@
-s="python"
-t="最好用的语言"
-s+=t
-print("{}".format(s))
-print("{}".format(s[-1]))
-print("{}".format(s[2:9]))
-print("{}".format(s[:3]))
-print("{}".format(s[-3:-1]))
+year=int(input("请输入年份"))
+for year in range(1993,2018):
+
+if year % 4 == 0 and year % 100 != 0:
+	print("yes")
+elif year%400==0:
+	print("yes")
+else:
+	print("no")
+
