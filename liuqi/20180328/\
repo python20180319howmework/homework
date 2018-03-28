@@ -3,8 +3,7 @@
 """
 from random import randint
 num = randint(10,20)
-#print(num)
-print("{}改二进制为：".format(num),end="")
+print(num)
 list1 = []
 num1 = 0
 while True:
@@ -13,9 +12,10 @@ while True:
 	num = num//2
 	if num == 0 :
 		break
-#print(list1)
+print(list1)
 list2 =list1[::-1]
-for i in range(0,len(list2)):
-	print(list2[i],end="")
+for i in range(0,len(list2))
+	print(list[i],end="")
 print("")
-
+	
+print("改变二进制是：{}".format(list2)) 
