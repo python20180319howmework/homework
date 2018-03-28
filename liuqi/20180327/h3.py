@@ -20,9 +20,7 @@ for i in range(100,1000):
 	i_3 = (i//100%10)**3
 	if i_1 + i_2 +i_3 == i:
 		num += 1
-	else:
-		continue 
-
-print("三位数中水仙花数共有{}个".format(num))	
+else:
+	print("三位数中水仙花数共有{}个".format(num))	
 	 
 

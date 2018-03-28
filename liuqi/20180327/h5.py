@@ -8,21 +8,19 @@
 print("请输入：")
 text = input()
 num1 = 0
-for word in text:
-	if ord("a") <= ord(word) <=ord("z"):
-		num1 += 1
-	else:
-		continue
-print("字符串中有{}个小写字母".format(num1)) 
+num3 = 0
 num2 = 0
 for word in text:
-	if ord("A")<= ord(word)<=ord("Z"):
-		 num2 += 1
+	if word.isdigit()==True:
+		num3 += 1
+	elif ord("a") <= ord(word) <=ord("z"):
+		num1 += 1
+	elif ord("A")<= ord(word)<=ord("Z"):
+		num2 += 1
 	else:
-		continue
+		pass
+print("字符串中有{}个小写字母".format(num1))
+print("字符串中有{}个数字".format(num3)) 
 print("字符串中有{}个大写字母".format(num2))
-if text.isdigit() == True:
-	print("是数字")
-else:
-	print("不是数字")
+
 
