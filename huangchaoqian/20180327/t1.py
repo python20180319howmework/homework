@@ -6,3 +6,4 @@ for i in range(100):
 	ts=time.strftime("%H:%M:%S",tl)
 	print(ts,end="\r")
 	time.sleep(1)
+
