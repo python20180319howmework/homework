@@ -7,10 +7,7 @@
 def mylen(stra):
 	count=0
 	for i in stra:
-		if i=="":
-			break
-		else:
-			count+=1
+		count+=1
 	return count
-stra=eval(input("请输入一个字符串："))
+stra=input("请输入一个字符串：")
 print("'{}'字符串的len为{}".format(stra,mylen(stra)))
