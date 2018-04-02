@@ -1,0 +1,8 @@
+-----The Zon of python---Tim Peters
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+                                 刘琪
+                               2018.3.31 
