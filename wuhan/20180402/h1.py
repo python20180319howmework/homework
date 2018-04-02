@@ -4,7 +4,7 @@ l=[]
 l2=[]
 a=("The Zen of Python")
 b=("Tim Peters")
-l1=("姓名：","黄永鹏 ","时间："," 20180331")
+l1=("姓名：","wuhan ","时间："," 20180331")
 def mywrite(myfile,l):
 	with open(myfile,"w") as fd1:
 		fd1.writelines(l)
