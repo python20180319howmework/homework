@@ -3,15 +3,20 @@
    1)判断输入的字符串是否是回文字符串 （例如："上海自来水来自海上"为回文字符串）
 '''
 def str1(s):
+	'''
 	l=[]
 	for i in s:
 		l.append(i)
 	print(l)
+	
 	a=tuple(l)
 	print(a)
+	'''
+	l=list(s)
 	l.reverse()
-	print(l)
-	if a is l:
+	newstr="".join(l)
+	print(newstr)
+	if s == newstr:
 		print("{}是回文字符串".format(s))
 	else:
 		print("{}不是回文字符串".format(s))

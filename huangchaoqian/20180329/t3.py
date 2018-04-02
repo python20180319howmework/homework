@@ -8,11 +8,19 @@ def dic(**kw):
 	l=[]
 	for i in kw.keys():
 		l.append(i)
-	print(l)
+	return l
+
+def dic2(*,nam,city,**kw):
+	if "name" not in kw.keys():
+		kw["name"]=nam
+	if "city" not in kw.keys():
+		kw["city"]=city
+	return kw
 	
 if __name__=="__main__":
 #	name=input("name:")
-	dic(name="huang",city="hubei")
-	
+	print(dic(name="huang",city="hubei"))
+#	print(dic2("chao","beijing",age=16,sex="男"))
+	print(dic2(height=170,nam="chao",city="beijing",age=16,sex="男"))
 
 
