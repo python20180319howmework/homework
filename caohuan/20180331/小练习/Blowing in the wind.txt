@@ -1,0 +1,13 @@
+The Zen of Python
+ Tim Peters
+
+Beautiful is better than ugly.
+
+Explicit is better than implicit.
+
+Simple is better than complex.  
+
+Complex is better than complicated.
+
+Flat is better than nested.
+姓名 曹欢     时间： 20180331
