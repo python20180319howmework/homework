@@ -2,7 +2,7 @@
 1. 编写一个函数：
    1) 计算所有参数的和的基数倍(默认基数为base=3)
 """
-def mysum(base=3,*arg):
+def mysum(*arg,base=3):   # 前边有星，后面的叫命名关键字参数，前边有星后边就不用加星
 	sum_1 = 0
 	for i in arg:
 	
