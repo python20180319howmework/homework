@@ -4,9 +4,11 @@
 """
 d = {"name":"python", "age":18, "fun":"alll"}
 
-l = []
+#l = []
 
-for k,v in d.items():
-	l.append(str(k) + "=" + str(v) )
+#for k,v in d.items():
+#	l.append(str(k) + "=" + str(v) )
+
+l = [ str(k) + "=" + str(v) for k,v in d.items()]
 
 print(l)
