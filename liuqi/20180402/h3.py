@@ -9,9 +9,9 @@ def name(x):
 	
 	return x[0].upper()+x[1:].lower()
 	
+if __name__ == "__main__":
+	a = map(name , ["lambDA","LILY","aliCe"]) 
 
-a = map(name , ["lambDA","LILY","aliCe"]) 
-
-b =list(a)
-print(b)
+	b =list(a)
+	print(b)
 
