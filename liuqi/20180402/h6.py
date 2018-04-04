@@ -5,4 +5,4 @@
 """
 d = {"chaoqian":87, "caoxu":90, "caohuan":98, "wuhan":82, "zhijia":89}
 
-print(sorted(d.items(),key = lambda x:x[1],reverse=True))
+print(sorted(d.items(),key = lambda x:x[1]))
