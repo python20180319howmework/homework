@@ -28,4 +28,11 @@ def dengji(score):
 
 print(dengji(score))
 
-
+'''
+或者 
+def get_level(grade)
+	level = ["E","E","E","E","E","E","D","C","B","A","A"]
+	return leve[gread//10]     # / 表示浮点
+if __name__"__main__":
+	yougrade = int(input("请输入你的成绩："))
+	print(get_leve(yougrade))

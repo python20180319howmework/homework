@@ -7,7 +7,7 @@ num = int(input("请输入一个整型数："))
 
 #定义一个函数
 def zhishu(num):
-	for i in range(2,num):
+	for i in range(2,num): #range(2,num//2 +1) 提高效率
 		if (num%i)== 0:
 			print(num,"不是质数")
 			break
