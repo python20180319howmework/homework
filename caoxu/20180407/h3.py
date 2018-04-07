@@ -24,7 +24,7 @@ class Tel(Enum):
 for i,member in Tel.__members__.items():
 	print(i,member.value)
 
-dict1 = {"王占森":"123455556","刘淇":"222222333335"}
+dict1 = {"王占森":"123455556","刘淇":"222222333335","张三":"1456789","李四":"4567812"}
 
 while True:
 
@@ -53,6 +53,9 @@ while True:
 		else:
 			dict1.pop(key)	
 			print("已删除")
+		print("通讯录为：")
+		for key,value in dict1.items():
+			print(key +"   "+dict1[key])
 
 	elif n == "4":
 		key = input("请输入联系人姓名:")
