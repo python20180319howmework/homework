@@ -2,7 +2,7 @@
 定义一个直线类(Line)和点类(Point),提供一个方法getLength方法,获取直线的长度
 '''
 
-import math import sqrt
+import math 
 
 class Point(object):
 	def __init__(self,x,y):
