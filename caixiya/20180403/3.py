@@ -28,9 +28,9 @@ x龟=[-1,-2,1,2] y龟=[1,2,-1,-2]random.randint()
 import random
 
 class Turtlet(object):
-	def __init__(self,position,power):
+	def __init__(self,position,d,step,power):
 		self.position=[5,5]
-		self.power=power
+		self.power=100
 		#if self.d=="left"
 			#self.position[0]-=1
 		lxg=[-1,-2,1,2]
@@ -39,7 +39,27 @@ class Turtlet(object):
 		ny=random.sample(lyg,1)
 		self.position=[self.position[0]+nx,self.position[1]+ny]
 		if self.position[0]==0 or self.position[1]==10:
-			
+		l=[1,2,3,4]
+		if self.d=="1":
+			if self.step==1:
+				self.position[1]+=1
+			elif self.step==2:
+				self.position[1]+=2
+		elif self.d=="2":
+			if self.step==1:
+				self.position[1]-=1
+			elif self.step==2:
+				self.position[1]-=2
+		elif self.d=="3":
+			if self.step==1:
+				self.position[0]-=1
+			elif self.step==2:
+				self.position[0]-=2
+		elif self.d=="4":
+			if self.step==1:
+				self.position[0]+=1
+			elif self.step==2:
+				self.position[0]+=2
 class Fish(object):
 	def __init__(self,xf,yf):
 		self.xf=xf
