@@ -7,10 +7,14 @@ l = [132,12321,11,9989,666]
 
 
 def huiwen(n):
+	
 	n = str(n)
 	return n == n[::-1]
 
-f = filter(huiwen,l)
 
-print(list(f))
+if __name__ == "__main__"
+	
+	f = filter(huiwen,l)
+
+	print(list(f))
 
