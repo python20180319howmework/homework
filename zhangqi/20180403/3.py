@@ -15,11 +15,16 @@
 提示:
     先定义乌龟类和鱼类,将乌龟和鱼类的所有的属性和方法先约定好    
 '''    
-class zuobiao(object):
-	def __init__(self,x,y):
+import random
+
+
+class Wugui(object):
+	def __init__(self, x = random.randint(0,10), y = random.randint(0,10)):
 		self.__x = x
 		self.__y = y
-	def print() 
+		
+	def __init__(self,tineng = 100)
+		
 
 
 
