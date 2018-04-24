@@ -1,0 +1,15 @@
+import turtle
+turtle.color("yellow","red")
+turtle.begin_fill()
+turtle.forward(300)
+turtle.right(144)
+turtle.forward(300)
+turtle.right(144)
+turtle.forward(300)
+turtle.right(144)
+turtle.forward(300)
+turtle.right(144)
+turtle.forward(300)
+turtle.end_fill()
+turtle.done()
+

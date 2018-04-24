@@ -1,0 +1,5 @@
+f=open("new.py","a+")
+f.write("你想吃啥")
+f.seek(0,0)
+print(f.read())
+f.close()

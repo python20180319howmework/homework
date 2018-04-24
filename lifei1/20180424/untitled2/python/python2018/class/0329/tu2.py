@@ -1,0 +1,11 @@
+from PIL import Image,ImageFilter
+im=Image.open("2.jpg")
+print(im.format,im.mode,im.size)
+r,g,b=im.split()
+om=Image.merge("RGB",(g,b,r))
+om.save("newn.png")
+im1=im.filter(ImageFilter. CONTOUR)
+im1.save('22.jpg','jpeg')
+#im.show()
+#om.show()
+im1.show()

@@ -1,0 +1,8 @@
+from turtle import *
+#setheading(90)
+pensize(30)
+color("green","white")
+circle(-100,30)
+circle(100,30)
+circle(-100,30)
+done()

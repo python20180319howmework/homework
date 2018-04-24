@@ -1,0 +1,4 @@
+a,b=10,15
+print(a is not b)
+print(a>b or b)
+print(a<b and b)

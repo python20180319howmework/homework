@@ -1,0 +1,11 @@
+str="小菜 你是最棒的"
+str1="Asd"
+print(len(str))
+print(str.split(sep="你"))
+STR1=(str1.upper())
+str1=(str1.lower())
+print(STR1,str1)
+str2="秋秋 加油"
+print("{1},@{0}".format(str,str2))
+num=11
+print("{0:b},{0:d},{0:o},{0:x},{0:X}".format(num))
