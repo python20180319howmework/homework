@@ -52,8 +52,6 @@ def main():
     # 实例化我方飞机
     myplane = plane.MyPlane(bg_img.get_rect())
 
-    gameover_image = pygame.image.load("images/gameover.png")  # 游戏结束背景图片
-    gameover_rect = gameover_image.get_rect()
     #控制图片切换速度
     delay = 0
     change_img = False
@@ -123,17 +121,36 @@ def main():
     bom_num = 3
     fnt2 = pygame.font.Font('./font/myfont.ttf', 48)
 
+    # 游戏结束背景图片
+    again_image = pygame.image.load('images/again.png')
+    again_rect = again_image.get_rect()
+    gameover_image = pygame.image.load("images/gameover.png")
+    gameover_rect = gameover_image.get_rect()
+
+
     running = True
     while running:
-
         for event in pygame.event.get():
             if event.type == QUIT:
                 pygame.quit()
                 exit(1)
             elif event.type == MOUSEBUTTONDOWN:
                 # 点击鼠标左键 并在按钮区域
-                if event.button == 1 and pause_rect.collidepoint(event.pos):
-                   pause_flag = not pause_flag
+                if event.button == 1 and pause_rect.left < pygame.mouse.get_pos()[0] < pause_rect.left + pause_rect.width \
+                        and pause_rect.top < pygame.mouse.get_pos()[1] < pause_rect.top + pause_rect.height:
+                    pause_flag = not pause_flag
+                if event.button == 1 and (width - again_image.get_rect().width) / 2 < pygame.mouse.get_pos()[0] < (width - again_image.get_rect().width) / 2 + \
+                        again_image.get_rect().width and height / 2 - again_image.get_rect().height - 25 < \
+                        pygame.mouse.get_pos()[1] < height / 2 - again_image.get_rect().height - 25 + \
+                        again_image.get_rect().height:
+                    pause_flag = False
+                    myplane.reset()
+
+                if event.button == 1 and (width - gameover_image.get_rect().width) / 2 < pygame.mouse.get_pos()[0] < (width - gameover_image.get_rect().width) / 2 + \
+                        gameover_image.get_rect().width and height / 2 + gameover_image.get_rect().height + 25 <pygame.mouse.get_pos()[1] < height / 2 + gameover_image.get_rect().height + 25 + \
+                        gameover_image.get_rect().height:
+                    running = False
+
             elif event.type == MOUSEMOTION:
                 if pause_rect.collidepoint(event.pos):
                     if pause_flag:
@@ -272,6 +289,7 @@ def main():
                 else:
                     e.reset()
 
+
         # 检测敌机是否撞击我方飞机
         collide_plane = pygame.sprite.spritecollide(myplane, enemies_group, False, \
                                     pygame.sprite.collide_mask)
@@ -303,12 +321,14 @@ def main():
         else:
             # 销毁
             screen.blit(myplane.destroy_images[me_index], myplane.rect)
-            if not delay % 10:
+            if not delay % 10 and me_index <3:
                 me_index += 1
-                if me_index == 4:
-                    screen.blit(gameover_image, gameover_rect)
-                    pygame.mixer.music.stop()  # 关闭背景音乐
-                    pygame.mixer.stop()  # 关闭所有音效
+            else:
+                screen.blit(again_image,((width - again_image.get_rect().width) / 2, height / 2 - again_image.get_rect().height - 25))
+                screen.blit(gameover_image,((width - gameover_image.get_rect().width) / 2, height / 2 + again_image.get_rect().height + 25))
+                pause_flag = True
+                pygame.mixer.music.stop()  # 关闭背景音乐
+                pygame.mixer.stop()  # 关闭所有音效
 
         # 绘制暂停开始
         screen.blit(pause_img, pause_rect)
