@@ -9,6 +9,7 @@ from random import *
 import myplane
 import enemyplane
 import buttle
+import time
 
 # 定义敌机数量
 small_enemiesnum = 3
@@ -52,7 +53,7 @@ def main():
     # 加载背景音乐
     bg_music = pygame.mixer.music.load("./sound/game_music.ogg")
     # 调节音量大小
-    pygame.mixer.music.set_volume(0.1)
+    pygame.mixer.music.set_volume(0.3)
     pygame.mixer.music.play(-1)
 
     # 加载音乐
@@ -112,7 +113,6 @@ def main():
 
     #实例化小敌机组
     add_small_enemy(small_enemies,enemies,small_enemiesnum,bg_image.get_rect())
-
     # 实例化中敌机组
     add_mid_enemy(mid_enemies,enemies,mid_enemiesnum,bg_image.get_rect())
     # 实例化大敌机组
@@ -138,12 +138,16 @@ def main():
     life_rect = life_image.get_rect()
     life_num = 3
 
-    # 补给 炸弹
+    # 全屏炸弹
     bomb_img = pygame.image.load("./images/bomb.png").convert_alpha()
     bomb_rect = bomb_img.get_rect()
     bomb_rect.left,bomb_rect.top = (5,height-bomb_rect.height-5)
     bom_num = 3
     fnt2 = pygame.font.Font("./font/myfont.ttf",48)
+
+    # 补给炸弹
+    bombs_image = pygame.image.load("./images/bomb_supply.png").convert_alpha()
+    bombs_rect = bombs_image.get_rect()
 
     # 设置显示分数
     score = 0
@@ -195,18 +199,18 @@ def main():
         screen.blit(bg_image, bg_image.get_rect())
         if not paused_flag:
             # 判断等级
-            if level == 1 and score > myscore:
-                level =+ 1
+            if  score >= myscore:
                 add_small_enemy(small_enemies,enemies,num1+3,bg_image.get_rect())
                 add_mid_enemy(mid_enemies,enemies,num2+2,bg_image.get_rect())
                 add_big_enemy(big_enemies,enemies,num3+1,bg_image.get_rect())
-                myscore += 100000
-                speed_increase(small_enemies,smallspeed+1)
-                speed_increase(mid_enemies,midspeed+0.7)
-                speed_increase(big_enemies,bigspeed+0.4)
-                smallspeed += 1
-                bigspeed += 0.4
-                midspeed += 0.7
+                speed_increase(small_enemies,smallspeed)
+                speed_increase(mid_enemies,midspeed)
+                speed_increase(big_enemies,bigspeed)
+                myscore += 50000
+                smallspeed += 0.5
+                bigspeed += 0.1
+                midspeed += 0.2
+                level += 1
 
             # 频繁按键
             pressedkeys = pygame.key.get_pressed()
@@ -257,7 +261,7 @@ def main():
                         screen.blit(e.image2,e.rect)
                     # 绘制血槽
                     pygame.draw.line(screen,(0,0,0),(e.rect.left,e.rect.top-5),\
-                                                    (e.rect.right,e.rect.top-5),2)
+                                                    (e.rect.right,e.rect.top-5),3)
                     #　剩余血量
                     current_egy = e.energy / enemyplane.BigPlane.energy
                     if current_egy < 0.2:
@@ -265,16 +269,16 @@ def main():
                     else:
                         color_paint = (0,255,0)
                     pygame.draw.line(screen, color_paint, (e.rect.left, e.rect.top-5), \
-                                     (e.rect.left + e.rect.width * current_egy, e.rect.top - 5), 2)
+                                     (e.rect.left + e.rect.width * current_egy, e.rect.top - 5), 4)
 
                 else:
                     screen.blit(e.destroy_images[big_index],e.rect)
                     if deply%3 == 0:
                         bomb_enemy3_down_sound.play(-1)
                         big_index += 1
-                        if big_index == 6:
+                        if big_index == 5:
                             bomb_enemy3_down_sound.stop()
-                            big_index==0
+                            big_index = 0
                             e.reset()
 
             for e in mid_enemies:
@@ -339,6 +343,8 @@ def main():
             myrender = fnt2.render("x %d"%bom_num,True,(234,23,56))
             screen.blit(myrender,(bomb_rect.right+2,bomb_rect.top))
 
+        # 随机出现炸弹
+
         # 实现飞机动态
         if my_plane.alive:
             if not change_img:
@@ -357,6 +363,13 @@ def main():
                     my_plane.reset(bg_size)
 
         if life_num == 0:
+
+            pygame.mixer.music.stop()
+            pygame.mixer.stop()
+            for e in enemies:
+                e.alive = False
+            for b in bullet_group:
+                b.alive = False
             game_rect.left,game_rect.top = (width - game_rect.width) / 2, 400
 
             screen.blit(game_over,game_rect)
@@ -370,6 +383,12 @@ def main():
                 # 用户点击重新开始
                 if again_rect.left < pos[0] < again_rect.right and\
                     again_rect.top < pos[1] < again_rect.bottom:
+                    pygame.mixer.music.play()
+                    pygame.mixer.music.rewind()
+                    for e in enemies:
+                        e.alive = True
+                    for b in bullet_group:
+                        b.alive = True
                     main()
                 elif game_rect.left < pos[0] < game_rect.right and\
                     game_rect.top < pos[1] < game_rect.bottom:

@@ -24,7 +24,7 @@ class HeroPlane(pygame.sprite.Sprite):
         self.alive = True
 
         # 速度
-        self.speed = 2
+        self.speed = 4
 
         # 背景大小
         self.bg_size = bg_size
@@ -48,14 +48,14 @@ class HeroPlane(pygame.sprite.Sprite):
     # 左右活动范围
     def move_left(self):
         if self.rect.left <0:
-            self.rect.left = 0
+            self.rect.left = -10
 
         else:
             self.rect.left -= self.speed
 
     def move_right(self):
         if self.rect.right > self.bg_size.width:
-            self.rect.right = self.bg_size.width
+            self.rect.right = self.bg_size.width+10
         else:
             self.rect.right += self.speed
 
