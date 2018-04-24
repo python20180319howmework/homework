@@ -25,8 +25,8 @@ class Ticket(object):
 			return mprice
 
 
-societyman = True
-student = False
+societyman = False
+student = True
 
 m = Ticket(societyman)
 m1 = m.myprice()
