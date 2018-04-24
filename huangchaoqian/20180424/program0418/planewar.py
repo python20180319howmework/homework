@@ -104,6 +104,12 @@ def main():
                         for e in enemy_group:
                             if e.alive and e.rect.bottom>0:
                                 e.alive=False
+                                if e in small_group:
+                                    score+=100
+                                elif e in mid_group:
+                                    score+=300
+                                else:
+                                    score+=500
                         bom_num-=1
         pressed_keys=pygame.key.get_pressed()
         if pressed_keys[K_LEFT]:
